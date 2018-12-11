@@ -26,7 +26,19 @@ export default new Router({
       path: "/count",
       name: "count",
       component: () =>
-        import(/* webpackChunkName: "about" */ "./views/Count.vue")
+        import(/* webpackChunkName: "count" */ "./views/Count.vue")
+    },
+    {
+      path: "/dog",
+      name: "dog",
+      component: () =>
+        import(/* webpackChunkName: "dog" */ "./views/Dog.vue")
+    },
+    {
+      path: "/dynamicStore",
+      name: "dynamicStore",
+      component: () =>
+        import(/* webpackChunkName: "dynamicStore" */ "./views/DynamicStore")
     }
   ]
 });

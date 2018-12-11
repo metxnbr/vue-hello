@@ -1,6 +1,8 @@
 import Vue from "vue";
 import Vuex from "vuex";
 
+import dog from "./modules/dog";
+
 Vue.use(Vuex);
 
 export default new Vuex.Store({
@@ -14,5 +16,9 @@ export default new Vuex.Store({
   actions: {
     increment: ({ commit }) => commit("increment"),
     decrement: ({ commit }) => commit("decrement")
-  }
+  },
+  modules: {
+    dog,
+  },
+  strict: process.env.NODE_ENV !== 'production',
 });
