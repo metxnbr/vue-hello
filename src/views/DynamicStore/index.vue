@@ -10,10 +10,13 @@
 import { mapState, mapActions } from "vuex";
 import dynamicStore from "@/store/modules/dynamicStore";
 
+const STORE_KEY = 'dynamicStore'
 export default {
-  name: "dynamicStore",
+  name: "DynamicStore",
   created: function() {
-    this.$store.registerModule('dynamicStore', dynamicStore)
+    if( !(STORE_KEY in this.$store._modules.root._children) ) {
+      this.$store.registerModule(STORE_KEY, dynamicStore)
+    }
   },
   methods: mapActions('dynamicStore',[
     'reverseMessage',
