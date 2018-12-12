@@ -1,6 +1,5 @@
 import request from '@/utils/request'
-
-const api = 'https://dog.ceo/api/breeds/image/random'
+import apis from './apis'
 
 export default {
   namespaced: true,
@@ -21,7 +20,7 @@ export default {
       dispatch('fetchdog')
      },
     async fetchdog({ commit }) {
-      const getDog =  () => request(api);
+      const getDog =  () => request(apis.randomDog);
       commit('receive', await getDog());
     }
   },
