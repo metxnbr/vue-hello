@@ -16,33 +16,32 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState } from 'vuex';
 
 export default {
-  name: "dog",
-  data: function() {
+  name: 'dog',
+  data() {
     return {
       loginType: 'username',
-    }
+    };
   },
   methods: {
-    toggleLoginType: function() {
-      if(this.loginType === 'username') {
-        this.loginType = 'address'
+    toggleLoginType() {
+      if (this.loginType === 'username') {
+        this.loginType = 'address';
       } else {
-        this.loginType = 'username'
+        this.loginType = 'username';
       }
-    }    
+    },
   },
   computed: mapState('dog', {
     data: state => state.data,
     isFetching: state => state.isFetching,
   }),
 
-  created: function() {
+  created() {
     this.$store.dispatch('dog/requestDog');
   },
-  
+
 };
 </script>
-

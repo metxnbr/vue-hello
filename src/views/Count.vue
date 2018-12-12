@@ -9,14 +9,13 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
+import { mapState, mapActions } from 'vuex';
 
 export default {
-  name: "count",
+  name: 'count',
   computed: mapState({
-    count: state => state.count
+    count: state => state.count,
   }),
-  methods: mapActions(["increment", "decrement"])
+  methods: mapActions(['increment', 'decrement']),
 };
 </script>
-

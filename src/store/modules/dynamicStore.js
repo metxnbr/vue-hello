@@ -1,16 +1,16 @@
 export default {
   namespaced: true,
   state: {
-    message: 'I am learning vue and vuex!'
+    message: 'I am learning vue and vuex!',
   },
   mutations: {
-    reverseMessage: state => {
-      state.message = state.message.split('').reverse().join('')
+    reverseMessage: (state) => {
+      state.message = state.message.split('').reverse().join('');
     },
   },
-  actions:{
-    reverseMessage: ( { commit } ) => {
+  actions: {
+    reverseMessage: ({ commit }) => {
       commit('reverseMessage');
-    }
-  }
-}
+    },
+  },
+};

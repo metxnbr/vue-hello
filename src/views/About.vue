@@ -10,12 +10,11 @@
 
 <script>
 export default {
-  name: "about",
+  name: 'about',
   data: () => ({
     version: process.env.VUE_APP_VERSION,
     nodeEnv: process.env.NODE_ENV,
-    host: process.env.VUE_APP_API_HOST
-  })
+    host: process.env.VUE_APP_API_HOST,
+  }),
 };
 </script>
-

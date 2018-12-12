@@ -1,5 +1,5 @@
-import request from '@/utils/request'
-import apis from './apis'
+import request from '@/utils/request';
+import apis from './apis';
 
 export default {
   namespaced: true,
@@ -12,16 +12,16 @@ export default {
     receive: (state, data) => {
       state.isFetching = false;
       state.data = data;
-    }
+    },
   },
   actions: {
-     requestDog({dispatch,commit}) {
+    requestDog({ dispatch, commit }) {
       commit('request');
-      dispatch('fetchdog')
-     },
+      dispatch('fetchdog');
+    },
     async fetchdog({ commit }) {
-      const getDog =  () => request(apis.randomDog);
+      const getDog = () => request(apis.randomDog);
       commit('receive', await getDog());
-    }
+    },
   },
-}
+};

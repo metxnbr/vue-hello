@@ -1,10 +1,8 @@
-import axios from 'axios'
+import axios from 'axios';
 
 const timeout = 1000 * 30;
 
-const getData = response => {
-  return response.data
-}
+const getData = response => response.data;
 
 export default (url, options = {}) => {
   const baseOptions = {
@@ -13,7 +11,7 @@ export default (url, options = {}) => {
   };
   return axios(url, baseOptions)
     .then(getData)
-    .catch(e => {
+    .catch((e) => {
       throw e;
     });
-}
+};
