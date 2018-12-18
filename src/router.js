@@ -36,5 +36,10 @@ export default new Router({
       name: 'dynamicStore',
       component: () => import(/* webpackChunkName: "dynamicStore" */ './views/DynamicStore'),
     },
+    {
+      path: '/socketDemo',
+      name: 'socketDemo',
+      component: () => import('./views/SocketDemo'),
+    },
   ],
 });
