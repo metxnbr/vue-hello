@@ -1,5 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
+import guard from '@/utils/guard';
+import alreadyLog from '@/utils/alreadyLog';
 import Home from './views/Home.vue';
 
 Vue.use(Router);
@@ -37,9 +39,27 @@ export default new Router({
       component: () => import(/* webpackChunkName: "dynamicStore" */ './views/DynamicStore'),
     },
     {
-      path: '/socketDemo',
-      name: 'socketDemo',
-      component: () => import('./views/SocketDemo'),
+      path: '/register',
+      name: 'register',
+      component: () => import('./views/Register'),
+      beforeEnter: alreadyLog,
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: () => import('./views/Login'),
+      beforeEnter: alreadyLog,
+    },
+    {
+      path: '/logout',
+      name: 'logout',
+      component: () => import('./views/Logout.vue'),
+    },
+    {
+      path: '/user',
+      name: 'user',
+      component: () => import('./views/User'),
+      beforeEnter: guard,
     },
   ],
 });
