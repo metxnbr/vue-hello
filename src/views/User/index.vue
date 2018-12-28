@@ -1,11 +1,13 @@
 <template>
   <div class="about">
     <h1>This is an user page</h1>
+    <p v-if="isFetching">loading...</p>
+    <p v-if="isFetching===false">username: {{user.username}}</p>
   </div>
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions, mapState } from 'vuex';
 
 import user from '@/store/modules/user';
 
@@ -19,6 +21,12 @@ export default {
       this.$store.registerModule(STORE_KEY, user);
     }
   },
+
+  computed: mapState(STORE_KEY, {
+    isFetching: state => state.isFetching,
+    user: state => state.user,
+  }),
+
 
   methods: mapActions(STORE_KEY, ['init']),
 

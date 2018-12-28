@@ -4,17 +4,35 @@ import apis from './apis';
 
 export default {
   namespaced: true,
-  state: {},
+  state: {
+    isFetching: false,
+    user: false,
+  },
 
-  mutations: {},
+  mutations: {
+    REQUEST_USER: (state) => {
+      state.isFetching = true;
+    },
+
+    RECEIVE_USER: (state, value) => {
+      state.isFetching = false;
+      state.user = value;
+    },
+  },
   actions: {
     init: ({ dispatch }) => {
       dispatch('requestChats');
     },
 
-    requestChats: async () => {
+    receiveUser: ({ commit }, value) => {
+      commit('RECEIVE_USER', value);
+    },
+
+    requestChats: async ({ commit, dispatch }) => {
       try {
-        await authRequest(apis.secret);
+        commit('REQUEST_USER');
+        const user = await authRequest(apis.user);
+        dispatch('receiveUser', user);
       } catch (error) {
         console.log(error);
       }
