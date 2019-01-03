@@ -1,0 +1,11 @@
+.blue >>> .bg {
+  background-color: #4076e0;
+}
+
+.blue >>> .color {
+  color: #4076e0;
+}
+
+.blue >>> .border {
+  border-color: #4076e0;
+}

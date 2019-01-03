@@ -2,7 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import guard from '@/utils/guard';
 import alreadyLog from '@/utils/alreadyLog';
-import Home from './views/Home.vue';
+import Home from './views/Home/index.vue';
 
 Vue.use(Router);
 

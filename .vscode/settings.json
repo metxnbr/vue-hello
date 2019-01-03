@@ -1,5 +1,6 @@
 {
   "files.eol": "\n",
   "editor.tabSize": 2,
-  "javascript.validate.enable": false
+  "javascript.validate.enable": false,
+  "eslint.autoFixOnSave": true
 }

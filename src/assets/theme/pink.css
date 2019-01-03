@@ -1,0 +1,11 @@
+.pink >>> .bg {
+  background-color: #ff9090;
+}
+
+.pink >>> .color {
+  color: #ff9090;
+}
+
+.pink >>> .border {
+  border-color: #ff9090;
+}
