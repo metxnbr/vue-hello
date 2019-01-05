@@ -1,14 +1,33 @@
 <template>
   <div class="register container">
-    <form class="form" v-on:submit.prevent="onSubmit">
+    <form
+      class="form"
+      :class="[
+        $theme(styled, 'form')
+      ]"
+      v-on:submit.prevent="onSubmit">
       <div class="input-group">
         <label class="title">username</label>
-        <input :value="username" @input="updateUsername" class="input" type="text">
+        <input
+          :value="username"
+          @input="updateUsername"
+          class="input"
+          :class="[
+            $theme(styled, 'input')
+          ]"
+          type="text">
       </div>
 
       <div class="input-group">
         <label class="title">password</label>
-        <input :value="password" @input="updatePassword" class="input" type="password">
+        <input
+          :value="password"
+          @input="updatePassword"
+          class="input"
+          :class="[
+            $theme(styled, 'input')
+          ]"
+          type="password">
       </div>
 
       <div class="input-group">
@@ -17,10 +36,19 @@
           :value="confirmPassword"
           @input="updateConfirmPassword"
           class="input"
+          :class="[
+            $theme(styled, 'input')
+          ]"
           type="password"
         >
       </div>
-      <input class="submit" type="submit" value="Sign up for us">
+      <input
+        class="submit"
+        :class="[
+          $theme(styled, 'submit'),
+        ]"
+        type="submit"
+        value="Sign up for us">
     </form>
   </div>
 </template>
@@ -34,7 +62,6 @@
 .form {
   padding: 30px 15px;
   border-radius: 3px;
-  background-color: #fff;
 }
 
 .input-group {
@@ -51,17 +78,16 @@
   width: 350px;
   height: 42px;
   padding-left: 10px;
-  border: 1px solid #ddd;
+  border-style: solid;
+  border-width: 1px;
   border-radius: 3px;
-  background-color: #fff;
   outline: none;
+  background-color: transparent;
   box-shadow: inset 0 0 3px #ddd;
   transition: 0.2s;
-  caret-color: #ff7474;
 }
 
 .input:focus {
-  border-color: pink;
   box-shadow: inset 0 0 3px transparent;
 }
 
@@ -75,19 +101,38 @@
   outline: none;
   color: #fff;
   cursor: pointer;
-  background-color: #ff7474;
   transition: 0.3s;
 }
 
-.submit:hover {
-  background-color: #c64242;
-}
 </style>
 
 <script>
-import { mapState, mapActions } from 'vuex';
+import { mapState, mapActions, mapGetters } from 'vuex';
 
 import register from '@/store/modules/register';
+
+const styled = function (color) {
+  const { mode, theme } = this;
+  return {
+    submit: {
+      'background-color': theme,
+      ':hover': {
+        'background-color': `${color(theme).darken(0.15)}`,
+      },
+    },
+    form: {
+      'background-color': mode('#fff'),
+    },
+    input: {
+      color: mode('#333'),
+      'border-color': mode('#ddd'),
+      'caret-color': theme,
+      ':focus': {
+        'border-color': theme,
+      },
+    },
+  };
+};
 
 const STORE_KEY = 'register';
 export default {
@@ -99,17 +144,27 @@ export default {
     }
   },
 
-  computed: mapState(STORE_KEY, {
-    username: state => state.username,
-    password: state => state.password,
-    confirmPassword: state => state.confirmPassword,
-  }),
+  computed: {
+    ...mapState(STORE_KEY, {
+      username: state => state.username,
+      password: state => state.password,
+      confirmPassword: state => state.confirmPassword,
+    }),
+    ...mapGetters([
+      'theme',
+      'mode',
+    ]),
+  },
 
-  methods: mapActions(STORE_KEY, [
-    'updateUsername',
-    'updatePassword',
-    'updateConfirmPassword',
-    'onSubmit',
-  ]),
+  methods: {
+    ...mapActions(STORE_KEY, [
+      'updateUsername',
+      'updatePassword',
+      'updateConfirmPassword',
+      'onSubmit',
+    ]),
+    styled,
+  },
 };
+
 </script>

@@ -1,5 +1,6 @@
 <template>
-  <div id="app" :class="theme">
+  <div id="app">
+    <HeadNav/>
     <router-view/>
   </div>
 </template>
@@ -17,16 +18,13 @@
 }
 </style>
 
-<style scoped src='./assets/theme/pink.css'></style>
-<style scoped src='./assets/theme/blue.css'></style>
-
 <script>
-import { mapState } from 'vuex';
+import HeadNav from '@/components/HeadNav.vue';
 
 export default {
   name: 'app',
-  computed: mapState({
-    theme: state => state.theme,
-  }),
+  components: {
+    HeadNav,
+  },
 };
 </script>
