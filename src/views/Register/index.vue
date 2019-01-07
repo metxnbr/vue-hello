@@ -2,9 +2,7 @@
   <div class="register container">
     <form
       class="form"
-      :class="[
-        $theme(styled, 'form')
-      ]"
+      :class="$styled('form')"
       v-on:submit.prevent="onSubmit">
       <div class="input-group">
         <label class="title">username</label>
@@ -12,9 +10,7 @@
           :value="username"
           @input="updateUsername"
           class="input"
-          :class="[
-            $theme(styled, 'input')
-          ]"
+          :class="$styled('input')"
           type="text">
       </div>
 
@@ -24,9 +20,7 @@
           :value="password"
           @input="updatePassword"
           class="input"
-          :class="[
-            $theme(styled, 'input')
-          ]"
+          :class="$styled('input')"
           type="password">
       </div>
 
@@ -36,17 +30,13 @@
           :value="confirmPassword"
           @input="updateConfirmPassword"
           class="input"
-          :class="[
-            $theme(styled, 'input')
-          ]"
+          :class="$styled('input')"
           type="password"
         >
       </div>
       <input
         class="submit"
-        :class="[
-          $theme(styled, 'submit'),
-        ]"
+        :class="$styled('submit')"
         type="submit"
         value="Sign up for us">
     </form>
@@ -111,28 +101,29 @@ import { mapState, mapActions, mapGetters } from 'vuex';
 
 import register from '@/store/modules/register';
 
-const styled = function (color) {
-  const { mode, theme } = this;
-  return {
-    submit: {
-      'background-color': theme,
-      ':hover': {
-        'background-color': `${color(theme).darken(0.15)}`,
-      },
+const styled = ({
+  theme,
+  color,
+  modeColor,
+}) => ({
+  form: {
+    'background-color': modeColor('#fff'),
+  },
+  input: {
+    color: modeColor('#333'),
+    'border-color': modeColor('#ddd'),
+    'caret-color': theme,
+    ':focus': {
+      'border-color': theme,
     },
-    form: {
-      'background-color': mode('#fff'),
+  },
+  submit: {
+    'background-color': theme,
+    ':hover': {
+      'background-color': `${color(theme).darken(0.2)}`,
     },
-    input: {
-      color: mode('#333'),
-      'border-color': mode('#ddd'),
-      'caret-color': theme,
-      ':focus': {
-        'border-color': theme,
-      },
-    },
-  };
-};
+  },
+});
 
 const STORE_KEY = 'register';
 export default {
@@ -150,9 +141,11 @@ export default {
       password: state => state.password,
       confirmPassword: state => state.confirmPassword,
     }),
+    ...mapState([
+      'mode',
+    ]),
     ...mapGetters([
       'theme',
-      'mode',
     ]),
   },
 

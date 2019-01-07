@@ -8,21 +8,17 @@
         Choose Theme
       </span>
       <div
-        :class="[
-          'box',
-        ]"
+        class="box"
+        :class="$styled('box')"
         ref="box"
-        :style="[
-          styleMode({property: 'background-color', value:'#fff'}),
-          styleMode({property: 'color', value:'#333'}),
-        ]"
         @click.stop>
         <div class="list">
-          <div v-for="(val, key, index) in theme" :key="index">
+          <div v-for="(val, key, index) in themeObj" :key="index">
             <div
               @click="handClickBtn(key)"
-              :style="{backgroundColor: val}"
               class="item"
+              :style="inlineStyles(val).item"
+              :class="$styled('item')"
             />
             <div
               class="lable"
@@ -34,21 +30,12 @@
         >Dark mode:</div>
         <div class="swtch-mode-wrap">
           <div
-            :style="[
-              styleMode({property: 'background-color',value: '#ddd'}),
-            ]"
-            class="swtch-mode" @click="handClickBar"
-          >
+              class="swtch-mode"
+              :class="$styled('swtch-mode')"
+              @click="handClickBar">
             <div
-              :style="[
-                mode === 'dark' ?
-                style({property: 'background-color'}) :
-                styleMode({property: 'background-color',value: '#999'}),
-              ]"
-              :class="[
-             'bar',
-             {open: mode==='dark'},
-            ]"></div>
+              class="bar"
+              :class="$styled('bar', mode === 'dark' && 'open')"></div>
           </div>
         </div>
       </div>
@@ -57,7 +44,36 @@
 </template>
 
 <script>
-import { mapState, mapActions, mapGetters } from 'vuex';
+import { mapState, mapGetters, mapActions } from 'vuex';
+
+const styled = ({
+  theme,
+  modeColor,
+}) => ({
+  box: {
+    color: modeColor('#333'),
+    'background-color': modeColor('#fff'),
+  },
+  'swtch-mode': {
+    'background-color': modeColor('#ddd'),
+  },
+  bar: {
+    'background-color': modeColor('#999'),
+  },
+  open: {
+    'margin-left': 0,
+    transform: 'translateX(100%)',
+    'background-color': theme,
+  },
+});
+
+const inlineStyles = function (color) {
+  return {
+    item: {
+      'background-color': color,
+    },
+  };
+};
 
 export default {
   name: 'SetTheme',
@@ -65,11 +81,10 @@ export default {
     ...mapState({
       currentTheme: state => state.currentTheme,
       mode: state => state.mode,
-      theme: state => state.theme,
+      themeObj: state => state.theme,
     }),
     ...mapGetters([
-      'style',
-      'styleMode',
+      'theme',
     ]),
   },
   methods: {
@@ -97,6 +112,8 @@ export default {
       this.setMode();
       this.toggleBox();
     },
+    styled,
+    inlineStyles,
   },
 
   mounted() {

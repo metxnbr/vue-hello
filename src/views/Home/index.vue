@@ -2,10 +2,7 @@
   <div class="home">
     <p
       class="text"
-     :style="[
-        styleMode({property: 'color', value: '#333'}),
-        styleMode({property: 'background-color', value: '#e9ecef'}),
-     ]"
+      :class="$styled('text')"
     >
       text text text text text text text text text text text text text
       text text text text text text text text text text text text text
@@ -55,12 +52,24 @@
 
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapState } from 'vuex';
+
+const styled = ({
+  modeColor,
+}) => ({
+  text: {
+    color: modeColor('#333'),
+    'background-color': modeColor('#ddd'),
+  },
+});
 
 export default {
   name: 'home',
-  computed: mapGetters([
-    'styleMode',
+  computed: mapState([
+    'mode',
   ]),
+  methods: {
+    styled,
+  },
 };
 </script>

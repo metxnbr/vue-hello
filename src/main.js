@@ -1,12 +1,12 @@
 import Vue from 'vue';
+import styled from '@/lib/styled';
 import App from './App.vue';
-import theme from './lib/theme';
 import router from './router';
 import store from './store';
 
 Vue.config.productionTip = false;
 
-Vue.use(theme);
+Vue.use(styled);
 
 new Vue({
   router,

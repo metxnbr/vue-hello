@@ -1,16 +1,33 @@
 <template>
   <div class="login container">
-    <form class="form" v-on:submit.prevent="onSubmit">
+    <form
+      class="form"
+      :class="$styled('form')"
+      v-on:submit.prevent="onSubmit">
       <div class="input-group">
         <label class="title">username</label>
-        <input :value="username" @input="updateUsername" class="input" type="text">
+        <input
+          :value="username"
+          @input="updateUsername"
+          class="input"
+          :class="$styled('input')"
+          type="text">
       </div>
 
       <div class="input-group">
         <label class="title">password</label>
-        <input :value="password" @input="updatePassword" class="input" type="password">
+        <input
+          :value="password"
+          @input="updatePassword"
+          class="input"
+          :class="$styled('input')"
+          type="password">
       </div>
-      <input class="submit" type="submit" value="Login">
+      <input
+        class="submit"
+        :class="$styled('submit')"
+        type="submit"
+        value="Login">
     </form>
   </div>
 </template>
@@ -24,7 +41,6 @@
 .form {
   padding: 30px 15px;
   border-radius: 3px;
-  background-color: #fff;
 }
 
 .input-group {
@@ -41,17 +57,16 @@
   width: 350px;
   height: 42px;
   padding-left: 10px;
-  border: 1px solid #ddd;
+  border-style: solid;
+  border-width: 1px;
   border-radius: 3px;
-  background-color: #fff;
+  background-color: transparent;
   outline: none;
   box-shadow: inset 0 0 3px #ddd;
   transition: 0.2s;
-  caret-color: #ff7474;
 }
 
 .input:focus {
-  border-color: pink;
   box-shadow: inset 0 0 3px transparent;
 }
 
@@ -65,19 +80,38 @@
   outline: none;
   color: #fff;
   cursor: pointer;
-  background-color: #ff7474;
   transition: 0.3s;
-}
-
-.submit:hover {
-  background-color: #c64242;
 }
 </style>
 
 <script>
-import { mapState, mapActions } from 'vuex';
+import { mapState, mapActions, mapGetters } from 'vuex';
 
 import login from '@/store/modules/login';
+
+const styled = ({
+  theme,
+  color,
+  modeColor,
+}) => ({
+  form: {
+    'background-color': modeColor('#fff'),
+  },
+  input: {
+    color: modeColor('#333'),
+    'border-color': modeColor('#ddd'),
+    'caret-color': theme,
+    ':focus': {
+      'border-color': theme,
+    },
+  },
+  submit: {
+    'background-color': theme,
+    ':hover': {
+      'background-color': `${color(theme).darken(0.2)}`,
+    },
+  },
+});
 
 const STORE_KEY = 'login';
 export default {
@@ -89,16 +123,27 @@ export default {
     }
   },
 
-  computed: mapState(STORE_KEY, {
-    username: state => state.username,
-    password: state => state.password,
-  }),
+  computed: {
+    ...mapState([
+      'mode',
+    ]),
+    ...mapState(STORE_KEY, [
+      'username',
+      'password',
+    ]),
+    ...mapGetters([
+      'theme',
+    ]),
+  },
 
-  methods: mapActions(STORE_KEY, [
-    'updateUsername',
-    'updatePassword',
-    'onSubmit',
-  ]),
+  methods: {
+    ...mapActions(STORE_KEY, [
+      'updateUsername',
+      'updatePassword',
+      'onSubmit',
+    ]),
+    styled,
+  },
 
 };
 </script>

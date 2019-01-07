@@ -1,15 +1,24 @@
 <template>
   <div
     class="head-nav"
-    :style="style({property: 'background-color'})"
+    :class="$styled('head-nav')"
   >
-    <router-link class="item" to="/">
+    <router-link
+      class="item"
+      :class="$styled('item')"
+      to="/">
       <span class="text">Chat</span>
     </router-link >
-    <router-link class="item" to="/login">
+    <router-link
+      class="item"
+      :class="$styled('item')"
+      to="/login">
       <span class="text">Sign in</span>
     </router-link >
-    <router-link class="item" to="/register">
+    <router-link
+      class="item"
+      :class="$styled('item')"
+      to="/register">
       <span class="text">Sign up</span>
     </router-link >
     <div class="right-side">
@@ -53,18 +62,41 @@
 
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapState, mapGetters } from 'vuex';
+
 import SetTheme from '@/components/SetTheme.vue';
+
+const styled = ({
+  theme,
+  color,
+}) => ({
+  'head-nav': {
+    'background-color': theme,
+  },
+  item: {
+    ':hover': {
+      'background-color': `${color(theme).darken(0.1)}`,
+    },
+  },
+});
 
 export default {
   name: 'headNav',
   components: {
     SetTheme,
   },
-  computed: mapGetters([
-    'style',
-    'styleMode',
-  ]),
 
+  computed: {
+    ...mapState([
+      'mode',
+    ]),
+    ...mapGetters([
+      'theme',
+    ]),
+  },
+
+  methods: {
+    styled,
+  },
 };
 </script>
