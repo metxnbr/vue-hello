@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <HeadNav/>
+    <HeadNavAuth v-if="loggedIn()"/>
+    <HeadNav v-else/>
     <router-view/>
   </div>
 </template>
@@ -19,12 +20,30 @@
 </style>
 
 <script>
+import { mapActions } from 'vuex';
+import HeadNavAuth from '@/components/HeadNavAuth.vue';
 import HeadNav from '@/components/HeadNav.vue';
+import { initBodyBg } from '@/utils/storageTheme';
+import { getToken } from '@/utils/auth';
+
+initBodyBg();
 
 export default {
   name: 'app',
   components: {
+    HeadNavAuth,
     HeadNav,
+  },
+  methods: {
+    ...mapActions('user', [
+      'requestUser',
+    ]),
+    loggedIn: () => !!getToken(),
+  },
+  mounted() {
+    if (this.loggedIn()) {
+      this.requestUser();
+    }
   },
 };
 </script>

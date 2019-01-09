@@ -15,5 +15,5 @@ export const setToken = (token) => {
 
 
 export const logOut = () => {
-  localStorage.clear();
+  localStorage.removeItem(AUTH_TOKEN);
 };

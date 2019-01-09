@@ -32,7 +32,7 @@
   position: relative;
   display: flex;
   align-items: stretch;
-  padding: 8px 16px;
+  padding: 0 16px;
   height: 56px;
   z-index: 9;
   box-shadow: 0 3px 5px -1px rgba(0,0,0,.2),

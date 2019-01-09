@@ -20,15 +20,11 @@ export default {
     },
   },
   actions: {
-    init: ({ dispatch }) => {
-      dispatch('requestChats');
-    },
-
     receiveUser: ({ commit }, value) => {
       commit('RECEIVE_USER', value);
     },
 
-    requestChats: async ({ commit, dispatch }) => {
+    requestUser: async ({ commit, dispatch }) => {
       try {
         commit('REQUEST_USER');
         const user = await authRequest(apis.user);

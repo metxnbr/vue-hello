@@ -1,12 +1,12 @@
 <template>
   <div class="set-theme">
     <div class="wrap">
-      <span
-        ref="open"
-        @click="toggleBox"
-        style="color: #fff; font-weight: bold; cursor: pointer; user-select: none">
-        Choose Theme
-      </span>
+      <div
+        class="theme-icon-wrap"
+        @click.stop="toggleBox"
+      >
+        <ThemeIcon size="25" class="icon"/>
+      </div>
       <div
         class="box"
         :class="$styled('box')"
@@ -45,6 +45,7 @@
 
 <script>
 import { mapState, mapGetters, mapActions } from 'vuex';
+import ThemeIcon from '@/icons/Theme.vue';
 
 const styled = ({
   theme,
@@ -67,7 +68,7 @@ const styled = ({
   },
 });
 
-const inlineStyles = function (color) {
+const inlineStyles = function inlineStyles(color) {
   return {
     item: {
       'background-color': color,
@@ -77,6 +78,9 @@ const inlineStyles = function (color) {
 
 export default {
   name: 'SetTheme',
+  components: {
+    ThemeIcon,
+  },
   computed: {
     ...mapState({
       currentTheme: state => state.currentTheme,
@@ -92,8 +96,7 @@ export default {
       'setCurrentTheme',
       'setMode',
     ]),
-    closeAll(e) {
-      if (e.target === this.$refs.open) return;
+    closeAll() {
       const currentClass = this.$refs.box.className.split(' ');
       const cl = currentClass.filter(item => item !== 'open');
       this.$refs.box.className = cl.join(' ');
@@ -136,6 +139,20 @@ export default {
     position: relative;
   }
 
+  .theme-icon-wrap {
+    padding: 0 16px;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .icon {
+    transition: 0.4s;
+  }
+
+  .icon:hover {
+    transform: scale(1.2);
+  }
+
   .box {
     position: absolute;
     top: 100%;
@@ -162,7 +179,7 @@ export default {
   }
 
   .list {
- display: flex;
+    display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
   }

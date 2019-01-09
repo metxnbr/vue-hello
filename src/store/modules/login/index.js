@@ -25,7 +25,7 @@ export default {
       commit('UPDATE_PASSWORD', e.target.value.trim());
     },
 
-    onSubmit: async ({ state }) => {
+    onSubmit: async ({ state, dispatch }) => {
       const { username, password } = state;
       try {
         const usernameLess = '用户名不少于3位';
@@ -56,6 +56,7 @@ export default {
 
         const json = await request(apis.login, options);
         setToken(json);
+        dispatch('user/requestUser', null, { root: true });
         router.push('/');
       } catch (error) {
         alert(error); // eslint-disable-line
