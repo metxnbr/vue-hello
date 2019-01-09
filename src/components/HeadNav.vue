@@ -23,6 +23,7 @@
     </router-link >
     <div class="right-side">
       <SetTheme/>
+      <LocaleChanger/>
     </div>
   </div>
 </template>
@@ -65,6 +66,7 @@
 import { mapState, mapGetters } from 'vuex';
 
 import SetTheme from '@/components/SetTheme.vue';
+import LocaleChanger from '@/components/LocaleChanger.vue';
 
 const styled = ({
   theme,
@@ -84,6 +86,7 @@ export default {
   name: 'headNav',
   components: {
     SetTheme,
+    LocaleChanger,
   },
 
   computed: {

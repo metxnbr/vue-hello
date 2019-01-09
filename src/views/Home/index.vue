@@ -1,46 +1,46 @@
 <template>
   <div class="home">
-    <p
-      class="text"
-      :class="$styled('text')"
-    >
-      text text text text text text text text text text text text text
-      text text text text text text text text text text text text text
-      text text text text text text text text text text text text text
-      text text text text text text text text text text text text text
-      text text text text text text text text text text text text text
-      text text text text text text text text text text text text text
-      text text text text text text text text text text text text text
-      text text text text text text text text text text text text text
-      text text text text text text text text text text text text text
-      text text text text text text text text text text text text text
-      text text text text text text text text text text text text text
-      text text text text text text text text text text text text text
-      text text text text text text text text text text text text text
-      text text text text text text text text text text text text text
-      text text text text text text text text text text text text text
-      text text text text text text text text text text text text text
-      text text text text text text text text text text text text text
-      text text text text text text text text text text text text text
-      text text text text text text text text text text text text text
-      text text text text text text text text text text text text text
-      text text text text text text text text text text text text text
-      text text text text text text text text text text text text text
-      text text text text text text text text text text text text text
-      text text text text text text text text text text text text text
-      text text text text text text text text text text text text text
-      text text text text text text text text text text text text text
-      text text text text text text text text text text text text text
-      text text text text text text text text text text text text text
-      text text text text text text text text text text text text text
-      text text text text text text text text text text text text text
-      text text text text text text text text text text text text text
-      text text text text text text text text text text text text text
-      text text text text text text text text text text text text text
-      text text text text text text text text text text text text text
-      text text text text text text text text text text text text text
-      text text text text text text text text text text text text text
-    </p>
+    <div class="text" :class="$styled('text')">
+      <h1>{{ $t("message.hello") }}</h1>
+      <p>
+        text text text text text text text text text text text text text
+        text text text text text text text text text text text text text
+        text text text text text text text text text text text text text
+        text text text text text text text text text text text text text
+        text text text text text text text text text text text text text
+        text text text text text text text text text text text text text
+        text text text text text text text text text text text text text
+        text text text text text text text text text text text text text
+        text text text text text text text text text text text text text
+        text text text text text text text text text text text text text
+        text text text text text text text text text text text text text
+        text text text text text text text text text text text text text
+        text text text text text text text text text text text text text
+        text text text text text text text text text text text text text
+        text text text text text text text text text text text text text
+        text text text text text text text text text text text text text
+        text text text text text text text text text text text text text
+        text text text text text text text text text text text text text
+        text text text text text text text text text text text text text
+        text text text text text text text text text text text text text
+        text text text text text text text text text text text text text
+        text text text text text text text text text text text text text
+        text text text text text text text text text text text text text
+        text text text text text text text text text text text text text
+        text text text text text text text text text text text text text
+        text text text text text text text text text text text text text
+        text text text text text text text text text text text text text
+        text text text text text text text text text text text text text
+        text text text text text text text text text text text text text
+        text text text text text text text text text text text text text
+        text text text text text text text text text text text text text
+        text text text text text text text text text text text text text
+        text text text text text text text text text text text text text
+        text text text text text text text text text text text text text
+        text text text text text text text text text text text text text
+        text text text text text text text text text text text text text
+      </p>
+    </div>
   </div>
 </template>
 

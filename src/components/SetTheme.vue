@@ -68,7 +68,7 @@ const styled = ({
   },
 });
 
-const inlineStyles = function inlineStyles(color) {
+const inlineStyles = function (color) {
   return {
     item: {
       'background-color': color,

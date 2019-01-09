@@ -3,7 +3,6 @@ import { StyleSheet, css } from 'aphrodite';
 
 export default {
   install: (Vue) => {
-    // eslint-disable-next-line func-names
     Vue.prototype.$styled = function (...args) {
       try {
         // eslint-disable-next-line no-underscore-dangle

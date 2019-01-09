@@ -30,6 +30,7 @@
             :class="$styled('user-handle-item')">Sign Out</div>
         </div>
       </div>
+      <LocaleChanger/>
     </div>
   </div>
 </template>
@@ -120,6 +121,7 @@ import { mapState, mapGetters } from 'vuex';
 import { logOut } from '@/utils/auth';
 
 import SetTheme from '@/components/SetTheme.vue';
+import LocaleChanger from '@/components/LocaleChanger.vue';
 
 const styled = ({
   theme,
@@ -155,6 +157,7 @@ export default {
   name: 'headNavAuth',
   components: {
     SetTheme,
+    LocaleChanger,
   },
 
   computed: {
