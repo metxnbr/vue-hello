@@ -5,15 +5,22 @@
         class="theme-icon-wrap"
         @click.stop="toggleBox"
       >
-        <ThemeIcon size="25" class="icon"/>
+        <ThemeIcon
+          size="25"
+          class="icon"
+        />
       </div>
       <div
         class="box"
         :class="$styled('box')"
         ref="box"
-        @click.stop>
+        @click.stop
+      >
         <div class="list">
-          <div v-for="(val, key, index) in themeObj" :key="index">
+          <div
+            v-for="(val, key, index) in themeObj"
+            :key="index"
+          >
             <div
               @click="handClickBtn(key)"
               class="item"
@@ -22,20 +29,26 @@
             />
             <div
               class="lable"
-            >{{key}}</div>
+            >
+              {{ key }}
+            </div>
           </div>
         </div>
         <div
           class="mode-labe"
-        >Dark mode:</div>
+        >
+          Dark mode:
+        </div>
         <div class="swtch-mode-wrap">
           <div
-              class="swtch-mode"
-              :class="$styled('swtch-mode')"
-              @click="handClickBar">
+            class="swtch-mode"
+            :class="$styled('swtch-mode')"
+            @click="handClickBar"
+          >
             <div
               class="bar"
-              :class="$styled('bar', mode === 'dark' && 'open')"></div>
+              :class="$styled('bar', mode === 'dark' && 'open')"
+            />
           </div>
         </div>
       </div>

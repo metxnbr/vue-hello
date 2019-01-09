@@ -13,7 +13,7 @@
 import IconBase from '@/components/IconBase.vue';
 
 export default {
-  name: 'theme',
+  name: 'Theme',
   components: {
     IconBase,
   },

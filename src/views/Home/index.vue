@@ -1,6 +1,9 @@
 <template>
   <div class="home">
-    <div class="text" :class="$styled('text')">
+    <div
+      class="text"
+      :class="$styled('text')"
+    >
       <h1>{{ $t("message.hello") }}</h1>
       <p>
         text text text text text text text text text text text text text
@@ -64,7 +67,7 @@ const styled = ({
 });
 
 export default {
-  name: 'home',
+  name: 'Home',
   computed: mapState([
     'mode',
   ]),

@@ -2,7 +2,9 @@
   <div class="dynamic-store">
     <h1>This is an DynamicStore page</h1>
     <p>{{ message }}</p>
-    <button @click="reverseMessage">reverse</button>
+    <button @click="reverseMessage">
+      reverse
+    </button>
   </div>
 </template>
 

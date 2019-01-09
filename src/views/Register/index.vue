@@ -3,29 +3,38 @@
     <form
       class="form"
       :class="$styled('form')"
-      v-on:submit.prevent="onSubmit">
+      @submit.prevent="onSubmit"
+    >
       <div class="input-group">
-        <label class="title">username</label>
+        <label class="title">
+          username
+        </label>
         <input
           :value="username"
           @input="updateUsername"
           class="input"
           :class="$styled('input')"
-          type="text">
+          type="text"
+        >
       </div>
 
       <div class="input-group">
-        <label class="title">password</label>
+        <label class="title">
+          password
+        </label>
         <input
           :value="password"
           @input="updatePassword"
           class="input"
           :class="$styled('input')"
-          type="password">
+          type="password"
+        >
       </div>
 
       <div class="input-group">
-        <label class="title">confirm password</label>
+        <label class="title">
+          confirm password
+        </label>
         <input
           :value="confirmPassword"
           @input="updateConfirmPassword"
@@ -38,7 +47,8 @@
         class="submit"
         :class="$styled('submit')"
         type="submit"
-        value="Sign up for us">
+        value="Sign up for us"
+      >
     </form>
   </div>
 </template>

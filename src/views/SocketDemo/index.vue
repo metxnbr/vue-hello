@@ -2,13 +2,30 @@
   <div class="socket-demo container">
     <h1>This is an socketDemo page</h1>
     <div class="container">
-      <div v-if="chatsIsFetching">loading...</div>
-      <div class="chat-failure" v-if="failureChats">loading chats list with failure</div>
+      <div v-if="chatsIsFetching">
+        loading...
+      </div>
+      <div
+        class="chat-failure"
+        v-if="failureChats"
+      >
+        loading chats list with failure
+      </div>
       <ul v-if="chats.length">
-        <li class="chat" v-for="(chat, index) in chats" :key="index">
-          <div class="chat-id">{{ chat.chat_user }}</div>
-          <div class="chat-message">{{ chat.chat_message }}</div>
-          <div class="chat-timemap">{{ chat.created_at }}</div>
+        <li
+          class="chat"
+          v-for="(chat, index) in chats"
+          :key="index"
+        >
+          <div class="chat-id">
+            {{ chat.chat_user }}
+          </div>
+          <div class="chat-message">
+            {{ chat.chat_message }}
+          </div>
+          <div class="chat-timemap">
+            {{ chat.created_at }}
+          </div>
         </li>
       </ul>
       <div v-if="chatsIsFetching === false">
@@ -17,9 +34,15 @@
           @input="updateMessage"
           :disabled="sending"
           class="message"
-          placeholder="typing message"></textarea>
-        <br/>
-        <input :disabled="sending" value="send" type="button" @click="send">
+          placeholder="typing message"
+        />
+        <br>
+        <input
+          :disabled="sending"
+          value="send"
+          type="button"
+          @click="send"
+        >
       </div>
     </div>
   </div>

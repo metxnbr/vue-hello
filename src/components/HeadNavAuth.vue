@@ -3,34 +3,51 @@
     class="head-nav"
     :class="$styled('head-nav')"
   >
-    <router-link
+    <RouterLink
       class="item"
       :class="$styled('item')"
-      to="/">
-      <span class="text">Chat</span>
-    </router-link >
+      to="/"
+    >
+      <span class="text">
+        Chat
+      </span>
+    </RouterLink>
     <div class="right-side">
-      <SetTheme/>
+      <SetTheme />
       <div
         class="user"
-        :class="$styled('user')">
-        <div class="avatar"></div>
+        :class="$styled('user')"
+      >
+        <div class="avatar" />
         <div class="user-name">
-          <span v-if="isFetching">--</span>
-          <span v-else>{{user.username}}</span>
+          <span v-if="isFetching">
+            --
+          </span>
+          <span v-else>
+            {{ user.username }}
+          </span>
         </div>
-        <div class="user-handle" :class="$styled('user-handle')">
-          <router-link
-            to='/dog'
+        <div
+          class="user-handle"
+          :class="$styled('user-handle')"
+        >
+          <RouterLink
+            to="/dog"
             class="user-handle-item"
-            :class="$styled('user-handle-item')">Account Center</router-link>
+            :class="$styled('user-handle-item')"
+          >
+            Account Center
+          </RouterLink>
           <div
             class="user-handle-item"
             @click="signOut"
-            :class="$styled('user-handle-item')">Sign Out</div>
+            :class="$styled('user-handle-item')"
+          >
+            Sign Out
+          </div>
         </div>
       </div>
-      <LocaleChanger/>
+      <LocaleChanger />
     </div>
   </div>
 </template>
@@ -154,7 +171,7 @@ const styled = ({
 });
 
 export default {
-  name: 'headNavAuth',
+  name: 'HeadNavAuth',
   components: {
     SetTheme,
     LocaleChanger,

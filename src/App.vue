@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <HeadNavAuth v-if="loggedIn()"/>
-    <HeadNav v-else/>
-    <router-view/>
+    <HeadNavAuth v-if="loggedIn()" />
+    <HeadNav v-else />
+    <RouterView />
   </div>
 </template>
 
@@ -29,7 +29,7 @@ import { getToken } from '@/utils/auth';
 initBodyBg();
 
 export default {
-  name: 'app',
+  name: 'App',
   components: {
     HeadNavAuth,
     HeadNav,

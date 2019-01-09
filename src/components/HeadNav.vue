@@ -3,27 +3,36 @@
     class="head-nav"
     :class="$styled('head-nav')"
   >
-    <router-link
+    <RouterLink
       class="item"
       :class="$styled('item')"
-      to="/">
-      <span class="text">Chat</span>
-    </router-link >
-    <router-link
+      to="/"
+    >
+      <span class="text">
+        Chat
+      </span>
+    </RouterLink>
+    <RouterLink
       class="item"
       :class="$styled('item')"
-      to="/login">
-      <span class="text">Sign in</span>
-    </router-link >
-    <router-link
+      to="/login"
+    >
+      <span class="text">
+        Sign in
+      </span>
+    </RouterLink>
+    <RouterLink
       class="item"
       :class="$styled('item')"
-      to="/register">
-      <span class="text">Sign up</span>
-    </router-link >
+      to="/register"
+    >
+      <span class="text">
+        Sign up
+      </span>
+    </RouterLink>
     <div class="right-side">
-      <SetTheme/>
-      <LocaleChanger/>
+      <SetTheme />
+      <LocaleChanger />
     </div>
   </div>
 </template>
@@ -83,7 +92,7 @@ const styled = ({
 });
 
 export default {
-  name: 'headNav',
+  name: 'HeadNav',
   components: {
     SetTheme,
     LocaleChanger,

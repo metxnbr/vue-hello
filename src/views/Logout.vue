@@ -1,6 +1,8 @@
 <template>
   <div class="logout">
-    <button @click="signOut">Sign out</button>
+    <button @click="signOut">
+      Sign out
+    </button>
   </div>
 </template>
 
@@ -9,7 +11,7 @@ import router from '@/router';
 import { logOut } from '@/utils/auth';
 
 export default {
-  name: 'logout',
+  name: 'Logout',
   methods: {
     signOut: () => {
       logOut();
