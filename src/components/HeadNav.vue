@@ -9,7 +9,7 @@
       to="/"
     >
       <span class="text">
-        Chat
+        {{ $t("app.headNav.logName") }}
       </span>
     </RouterLink>
     <RouterLink
@@ -18,7 +18,7 @@
       to="/login"
     >
       <span class="text">
-        Sign in
+        {{ $t("app.headNav.signIn") }}
       </span>
     </RouterLink>
     <RouterLink
@@ -27,7 +27,7 @@
       to="/register"
     >
       <span class="text">
-        Sign up
+        {{ $t("app.headNav.signUp") }}
       </span>
     </RouterLink>
     <div class="right-side">
@@ -64,7 +64,6 @@
 
 .right-side {
   display: flex;
-  align-items: center;
   margin-left: auto;
 }
 

@@ -7,7 +7,7 @@
     >
       <div class="input-group">
         <label class="title">
-          username
+          {{ $t("register.username") }}
         </label>
         <input
           :value="username"
@@ -20,7 +20,7 @@
 
       <div class="input-group">
         <label class="title">
-          password
+          {{ $t("register.password") }}
         </label>
         <input
           :value="password"
@@ -33,7 +33,7 @@
 
       <div class="input-group">
         <label class="title">
-          confirm password
+          {{ $t("register.confirmPassword") }}
         </label>
         <input
           :value="confirmPassword"
@@ -47,7 +47,7 @@
         class="submit"
         :class="$styled('submit')"
         type="submit"
-        value="Sign up for us"
+        :value="$t('register.signUp')"
       >
     </form>
   </div>

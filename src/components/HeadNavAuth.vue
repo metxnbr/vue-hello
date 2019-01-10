@@ -9,7 +9,7 @@
       to="/"
     >
       <span class="text">
-        Chat
+        {{ $t("app.headNav.logName") }}
       </span>
     </RouterLink>
     <div class="right-side">
@@ -43,7 +43,7 @@
             @click="signOut"
             :class="$styled('user-handle-item')"
           >
-            Sign Out
+            {{ $t("app.headNav.signOut") }}
           </div>
         </div>
       </div>
@@ -79,7 +79,6 @@
 
 .right-side {
   display: flex;
-  align-items: center;
   margin-left: auto;
 }
 

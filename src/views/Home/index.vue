@@ -4,7 +4,7 @@
       class="text"
       :class="$styled('text')"
     >
-      <h1>{{ $t("message.hello") }}</h1>
+      <h1>{{ $t("home.message.hello") }}</h1>
       <p>
         text text text text text text text text text text text text text
         text text text text text text text text text text text text text

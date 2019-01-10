@@ -7,7 +7,7 @@
     >
       <div class="input-group">
         <label class="title">
-          username
+          {{ $t("login.username") }}
         </label>
         <input
           :value="username"
@@ -20,7 +20,7 @@
 
       <div class="input-group">
         <label class="title">
-          password
+          {{ $t("login.password") }}
         </label>
         <input
           :value="password"
@@ -34,7 +34,7 @@
         class="submit"
         :class="$styled('submit')"
         type="submit"
-        value="Login"
+        :value="$t('login.login')"
       >
     </form>
   </div>
