@@ -6,42 +6,7 @@
     >
       <h1>{{ $t("home.message.hello") }}</h1>
       <p>
-        text text text text text text text text text text text text text
-        text text text text text text text text text text text text text
-        text text text text text text text text text text text text text
-        text text text text text text text text text text text text text
-        text text text text text text text text text text text text text
-        text text text text text text text text text text text text text
-        text text text text text text text text text text text text text
-        text text text text text text text text text text text text text
-        text text text text text text text text text text text text text
-        text text text text text text text text text text text text text
-        text text text text text text text text text text text text text
-        text text text text text text text text text text text text text
-        text text text text text text text text text text text text text
-        text text text text text text text text text text text text text
-        text text text text text text text text text text text text text
-        text text text text text text text text text text text text text
-        text text text text text text text text text text text text text
-        text text text text text text text text text text text text text
-        text text text text text text text text text text text text text
-        text text text text text text text text text text text text text
-        text text text text text text text text text text text text text
-        text text text text text text text text text text text text text
-        text text text text text text text text text text text text text
-        text text text text text text text text text text text text text
-        text text text text text text text text text text text text text
-        text text text text text text text text text text text text text
-        text text text text text text text text text text text text text
-        text text text text text text text text text text text text text
-        text text text text text text text text text text text text text
-        text text text text text text text text text text text text text
-        text text text text text text text text text text text text text
-        text text text text text text text text text text text text text
-        text text text text text text text text text text text text text
-        text text text text text text text text text text text text text
-        text text text text text text text text text text text text text
-        text text text text text text text text text text text text text
+        {{ repeatText($t("home.message.text"), 100) }}
       </p>
     </div>
   </div>
@@ -73,6 +38,16 @@ export default {
   ]),
   methods: {
     styled,
+    repeatText: (text, count) => {
+      let i = 0;
+      const textArr = [];
+      while (i < count) {
+        textArr.push(text);
+        i += 1;
+      }
+
+      return textArr.join(', ');
+    },
   },
 };
 </script>
