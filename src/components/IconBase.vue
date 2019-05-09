@@ -12,8 +12,11 @@
 export default {
   name: 'IconBase',
   props: {
+    // eslint-disable-next-line vue/require-default-prop
     width: [String, Number],
+    // eslint-disable-next-line vue/require-default-prop
     height: [String, Number],
+    // eslint-disable-next-line vue/require-default-prop
     size: [String, Number],
   },
 };
